@@ -1,0 +1,62 @@
+#! /usr/bin/vvp
+:ivl_version "11.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x5636572376a0 .scope module, "testbencha1" "testbencha1" 2 1;
+ .timescale 0 0;
+v0x563657248d90_0 .var "a", 0 0;
+v0x563657248e50_0 .var "b", 0 0;
+v0x563657248f20_0 .net "borrow", 0 0, L_0x5636572492c0;  1 drivers
+v0x563657249020_0 .net "difference", 0 0, L_0x5636572490f0;  1 drivers
+S_0x563657237830 .scope module, "uut" "halfsubtractor" 2 4, 3 1 0, S_0x5636572376a0;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "difference";
+    .port_info 1 /OUTPUT 1 "borrow";
+    .port_info 2 /INPUT 1 "a";
+    .port_info 3 /INPUT 1 "b";
+L_0x5636572490f0 .functor XOR 1, v0x563657248d90_0, v0x563657248e50_0, C4<0>, C4<0>;
+L_0x563657249250 .functor NOT 1, v0x563657248d90_0, C4<0>, C4<0>, C4<0>;
+L_0x5636572492c0 .functor AND 1, L_0x563657249250, v0x563657248e50_0, C4<1>, C4<1>;
+v0x5636571fdcf0_0 .net "a", 0 0, v0x563657248d90_0;  1 drivers
+v0x5636572489b0_0 .net "b", 0 0, v0x563657248e50_0;  1 drivers
+v0x563657248a70_0 .net "borrow", 0 0, L_0x5636572492c0;  alias, 1 drivers
+v0x563657248b40_0 .net "difference", 0 0, L_0x5636572490f0;  alias, 1 drivers
+v0x563657248c00_0 .net "w1", 0 0, L_0x563657249250;  1 drivers
+    .scope S_0x5636572376a0;
+T_0 ;
+    %vpi_call 2 6 "$dumpfile", "halfsubtractor.vcd" {0 0 0};
+    %vpi_call 2 7 "$dumpvars" {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x563657248d90_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x563657248e50_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x563657248d90_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x563657248e50_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x563657248d90_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x563657248e50_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x563657248d90_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x563657248e50_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 2 20 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "testbencha1.v";
+    "halfsubtractor.v";

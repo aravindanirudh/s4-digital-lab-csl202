@@ -1,0 +1,41 @@
+$date
+	Tue Feb 18 20:40:44 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module testbencha1 $end
+$var wire 1 ! difference $end
+$var wire 1 " borrow $end
+$var reg 1 # a $end
+$var reg 1 $ b $end
+$scope module uut $end
+$var wire 1 # a $end
+$var wire 1 $ b $end
+$var reg 1 " borrow $end
+$var reg 1 ! difference $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0$
+0#
+0"
+0!
+$end
+#10
+1"
+1!
+1$
+#20
+0"
+0$
+1#
+#30
+0!
+1$
+#40
